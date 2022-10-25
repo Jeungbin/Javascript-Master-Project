@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+:root{
+    --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  --transtion:all 0.3s linear;
+  --spacing:0.1rem;
+  --radius:0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+
+body{
+    font-family: var(--ff-primary);
+    margin: 0;
+    background-color: aquamarine;
+}
+nav{
+    box-shadow: var(--dark-shadow);
+    background-color: white;
+}
+ul{
+    
+    padding: 0;
+    text-transform: capitalize;
+    list-style-type: none;
+}
+li{
+    letter-spacing: 0.1rem;
+    padding: 1rem;
+    width: 100%;
+    transition: var(--transtion);
+}
+li:hover{
+    background-color: aqua;
+}
+a{
+    text-decoration: none;
+    
+}
+
+.nav-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-center{
+    margin: 0;
+    padding: 0;
+}
+.nav-toggle{
+    padding-right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: lightskyblue;
+    transition: var(--transtion);
+}
+.nav-toggle:hover{
+    transform: rotate(90deg);
+}
+
+.social-links{
+    display: none;
+}
+.logo{
+    margin: 1rem;
+}
+.links{
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+.show-links{
+    height: auto;
+    
+}
