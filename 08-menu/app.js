@@ -72,3 +72,127 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+
+// const menuOptions = document.querySelectorAll(".menu-option");
+// const menuContainer = document.querySelector(".menu");
+
+// menu.filter((item) => {
+//   menuContainer.innerHTML += `
+//   <img class="food-img" src=${item.img} alt="">
+//     <div class="name-price">
+//       <p class="name">${item.title}</p>
+//       <p class="price">${item.price}</p>
+//     </div>
+//     <div class="desc">
+//       <p>${item.desc}</p>
+//     </div>
+//   `;
+// });
+
+// menuOptions.forEach((menuBtn) => {
+//   menuBtn.addEventListener("click", () => {
+//     menuContainer.innerHTML = "";
+//     if (menuBtn.innerHTML === "All") {
+//       menu.filter((item) => {
+//         menuContainer.innerHTML += `
+//         <img src=${item.img} alt="">
+//           <div class="name-price">
+//             <p class="name">${item.title}</p>
+//             <p class="price">${item.price}</p>
+//           </div>
+//           <div class="desc">
+//             <p>${item.desc}</p>
+//           </div>
+//         `;
+//       });
+//     } else {
+//       menu.map((item) => {
+//         if (menuBtn.innerHTML === item.category) {
+//           menuContainer.innerHTML += `
+//         <img src=${item.img} alt="">
+//           <div class="name-price">
+//             <p class="name">${item.title}</p>
+//             <p class="price">${item.price}</p>
+//           </div>
+//           <div class="desc">
+//             <p>${item.desc}</p>
+//           </div>
+//         `;
+//         }
+//       });
+//     }
+//   });
+// });
+
+const btnContainer = document.querySelector(".btn-container");
+const menuContainer = document.querySelector(".section-center");
+
+window.addEventListener("DOMContentLoaded", () => {
+  displayMenu(menu);
+  displayMenuButtons();
+});
+
+function displayMenu(menuItems) {
+  const menuItemHtml = menuItems
+    .map((item) => {
+      return `
+    <article class="menu-item">
+    <img src=${item.img} alt="menu item" class="photo" />
+    <div class="item-info">
+      <header>
+        <h4>buttermilk pancakes</h4>
+        <h4 class="price">$15</h4>
+      </header>
+      <p class="item-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Repudiandae, sint quam. Et repbrehenderit fugiat nesciunt inventore
+        laboriosam excepturi! Quo, officia.
+      </p>
+    </div>
+  </article>
+    `;
+    })
+    .join("");
+  menuContainer.innerHTML = menuItemHtml;
+}
+
+function displayMenuButtons() {
+  const categories = menu.reduce(
+    (values, item) => {
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
+      return values;
+    },
+    ["all"]
+  );
+  //console.log(categories);
+  const buttonHtml = categories
+    .map((item) => {
+      return `
+    <button type="button" class="filter-btn" data-id=${item}>
+    ${item}
+    </button>
+    `;
+    })
+    .join("");
+
+  btnContainer.innerHTML = buttonHtml;
+
+  const buttons = btnContainer.querySelectorAll(".filter-btn");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const targetBtn = e.currentTarget.dataset.id;
+      const menuItems = menu.filter((item) => {
+        if (item.category === targetBtn) {
+          return item;
+        }
+      });
+      if (targetBtn === "all") {
+        displayMenu(menu);
+      } else {
+        displayMenu(menuItems);
+      }
+    });
+  });
+}

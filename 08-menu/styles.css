@@ -80,9 +80,7 @@ ul {
 a {
   text-decoration: none;
 }
-img:not(.logo) {
-  width: 100%;
-}
+
 img {
   display: block;
 }
@@ -137,7 +135,9 @@ p {
   }
 }
 /*  global classes */
-
+:root{
+  --main-color: rgb(234, 161, 98);
+}
 .btn {
   text-transform: uppercase;
   background: transparent;
@@ -172,26 +172,26 @@ Menu
 ===============
 */
 
-.menu {
+.menu{
   padding: 5rem 0;
 }
-.title {
+.title{
   text-align: center;
   margin-bottom: 2rem;
 }
-.underline {
+.underline{
   width: 5rem;
   height: 0.25rem;
-  background: var(--clr-gold);
+  background-color: var(--clr-gold);
   margin-left: auto;
   margin-right: auto;
 }
-.btn-container {
+.btn-container{
   margin-bottom: 4rem;
   display: flex;
   justify-content: center;
 }
-.filter-btn {
+.filter-btn{
   background: transparent;
   border-color: var(--clr-gold);
   font-size: 1rem;
@@ -204,61 +204,35 @@ Menu
   cursor: pointer;
   transition: var(--transition);
 }
-.filter-btn:hover {
+.filter-btn:hover{
   background: var(--clr-gold);
   color: var(--clr-white);
 }
-.section-center {
+.section-center{
   width: 90vw;
   margin: 0 auto;
   max-width: 1170px;
   display: grid;
   gap: 3rem 2rem;
-  justify-items: center;
+  justify-content: center;
 }
-.menu-item {
+.menu-item{
+  place-items: center;
   display: grid;
   gap: 1rem 2rem;
   max-width: 25rem;
 }
-.photo {
+.photo{
   object-fit: cover;
   height: 200px;
   border: 0.25rem solid var(--clr-gold);
   border-radius: var(--radius);
 }
-.item-info header {
+.item-info header{
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px dotted var(--clr-grey-5);
 }
-.item-info h4 {
+.item-info h4{
   margin-bottom: 0.5rem;
-}
-.price {
-  color: var(--clr-gold);
-}
-.item-text {
-  margin-bottom: 0;
-  padding-top: 1rem;
-}
-
-@media screen and (min-width: 768px) {
-  .menu-item {
-    grid-template-columns: 225px 1fr;
-    gap: 0 1.25rem;
-    max-width: 40rem;
-  }
-  .photo {
-    height: 175px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .section-center {
-    width: 95vw;
-    grid-template-columns: 1fr 1fr;
-  }
-  .photo {
-    height: 150px;
-  }
 }
